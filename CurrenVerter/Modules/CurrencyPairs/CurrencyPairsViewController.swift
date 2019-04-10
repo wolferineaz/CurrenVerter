@@ -45,7 +45,7 @@ extension CurrencyPairsViewController: CurrencyPairsView {
     }
 
     @objc func onClickAddButton(sender: UIButton) {
-        
+        self.presenter.onClickAddNewPair()
     }
 
 }

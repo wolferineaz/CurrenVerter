@@ -11,6 +11,7 @@ import UIKit
 
 protocol CurrencyPairsPresenter {
     func viewDidLoad()
+    func onClickAddNewPair()
 }
 
 class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
@@ -22,6 +23,10 @@ class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
         let pairs = [CurrencyPair]()
         self.view?.show(pairs)
 
+    }
+
+    func onClickAddNewPair() {
+        self.router.showCurrencies()
     }
 
     init(view: CurrencyPairsView, router: CurrencyPairsRouter) {

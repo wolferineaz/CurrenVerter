@@ -20,7 +20,11 @@ class Currency {
 
 extension Currency {
 
-    static func all() -> [String] {
+    static func all() -> [Currency] {
+        return self.identifiers().map { Currency(identifier: $0) }
+    }
+
+    static func identifiers() -> [String] {
         return ["AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK",
                 "EUR", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR",
                 "ISK", "JPY", "KRW", "MXN", "MYR", "NOK", "NZD", "PHP",
