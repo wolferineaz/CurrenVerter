@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		75EA41B7225E6A350080A7CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41B6225E6A350080A7CE /* AppDelegate.swift */; };
-		75EA41B9225E6A350080A7CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41B8225E6A350080A7CE /* ViewController.swift */; };
-		75EA41BC225E6A350080A7CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41BA225E6A350080A7CE /* Main.storyboard */; };
 		75EA41BE225E6A370080A7CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41BD225E6A370080A7CE /* Assets.xcassets */; };
 		75EA41C1225E6A370080A7CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41BF225E6A370080A7CE /* LaunchScreen.storyboard */; };
+		75EA41CD225E6B300080A7CE /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41CC225E6B300080A7CE /* RootRouter.swift */; };
+		75EA41D4225E6C0F0080A7CE /* CurrencyPairsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41CF225E6C0F0080A7CE /* CurrencyPairsPresenter.swift */; };
+		75EA41D5225E6C0F0080A7CE /* CurrencyPairsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41D0225E6C0F0080A7CE /* CurrencyPairsRouter.swift */; };
+		75EA41D6225E6C0F0080A7CE /* CurrencyPairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41D1225E6C0F0080A7CE /* CurrencyPairsViewController.swift */; };
+		75EA41D7225E6C0F0080A7CE /* CurrencyPairsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41D2225E6C0F0080A7CE /* CurrencyPairsConfigurator.swift */; };
+		75EA41D8225E6C0F0080A7CE /* CurrencyPairsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41D3225E6C0F0080A7CE /* CurrencyPairsViewController.xib */; };
+		75EA41DC225E6C570080A7CE /* UIViewController+TDExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41DB225E6C570080A7CE /* UIViewController+TDExtended.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		75EA41B3225E6A350080A7CE /* CurrenVerter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrenVerter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA41B6225E6A350080A7CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		75EA41B8225E6A350080A7CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		75EA41BB225E6A350080A7CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75EA41BD225E6A370080A7CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75EA41C0225E6A370080A7CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75EA41C2225E6A370080A7CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75EA41CC225E6B300080A7CE /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		75EA41CF225E6C0F0080A7CE /* CurrencyPairsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairsPresenter.swift; sourceTree = "<group>"; };
+		75EA41D0225E6C0F0080A7CE /* CurrencyPairsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairsRouter.swift; sourceTree = "<group>"; };
+		75EA41D1225E6C0F0080A7CE /* CurrencyPairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairsViewController.swift; sourceTree = "<group>"; };
+		75EA41D2225E6C0F0080A7CE /* CurrencyPairsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairsConfigurator.swift; sourceTree = "<group>"; };
+		75EA41D3225E6C0F0080A7CE /* CurrencyPairsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyPairsViewController.xib; sourceTree = "<group>"; };
+		75EA41DB225E6C570080A7CE /* UIViewController+TDExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TDExtended.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,75 @@
 		75EA41B5225E6A350080A7CE /* CurrenVerter */ = {
 			isa = PBXGroup;
 			children = (
+				75EA41D9225E6C390080A7CE /* Extensions */,
+				75EA41CB225E6AD20080A7CE /* Modules */,
+				75EA41CA225E6AAF0080A7CE /* Resources */,
+				75EA41C9225E6A960080A7CE /* Supporting Files */,
+				75EA41C8225E6A880080A7CE /* Application */,
+			);
+			path = CurrenVerter;
+			sourceTree = "<group>";
+		};
+		75EA41C8225E6A880080A7CE /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				75EA41B6225E6A350080A7CE /* AppDelegate.swift */,
-				75EA41B8225E6A350080A7CE /* ViewController.swift */,
-				75EA41BA225E6A350080A7CE /* Main.storyboard */,
-				75EA41BD225E6A370080A7CE /* Assets.xcassets */,
+				75EA41CC225E6B300080A7CE /* RootRouter.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		75EA41C9225E6A960080A7CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				75EA41BF225E6A370080A7CE /* LaunchScreen.storyboard */,
 				75EA41C2225E6A370080A7CE /* Info.plist */,
 			);
-			path = CurrenVerter;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75EA41CA225E6AAF0080A7CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41BD225E6A370080A7CE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		75EA41CB225E6AD20080A7CE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41CE225E6BF90080A7CE /* CurrencyPairs */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		75EA41CE225E6BF90080A7CE /* CurrencyPairs */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41CF225E6C0F0080A7CE /* CurrencyPairsPresenter.swift */,
+				75EA41D0225E6C0F0080A7CE /* CurrencyPairsRouter.swift */,
+				75EA41D1225E6C0F0080A7CE /* CurrencyPairsViewController.swift */,
+				75EA41D2225E6C0F0080A7CE /* CurrencyPairsConfigurator.swift */,
+				75EA41D3225E6C0F0080A7CE /* CurrencyPairsViewController.xib */,
+			);
+			path = CurrencyPairs;
+			sourceTree = "<group>";
+		};
+		75EA41D9225E6C390080A7CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41DA225E6C440080A7CE /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		75EA41DA225E6C440080A7CE /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41DB225E6C570080A7CE /* UIViewController+TDExtended.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +195,7 @@
 			files = (
 				75EA41C1225E6A370080A7CE /* LaunchScreen.storyboard in Resources */,
 				75EA41BE225E6A370080A7CE /* Assets.xcassets in Resources */,
-				75EA41BC225E6A350080A7CE /* Main.storyboard in Resources */,
+				75EA41D8225E6C0F0080A7CE /* CurrencyPairsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +206,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EA41B9225E6A350080A7CE /* ViewController.swift in Sources */,
+				75EA41CD225E6B300080A7CE /* RootRouter.swift in Sources */,
 				75EA41B7225E6A350080A7CE /* AppDelegate.swift in Sources */,
+				75EA41D4225E6C0F0080A7CE /* CurrencyPairsPresenter.swift in Sources */,
+				75EA41D7225E6C0F0080A7CE /* CurrencyPairsConfigurator.swift in Sources */,
+				75EA41D6225E6C0F0080A7CE /* CurrencyPairsViewController.swift in Sources */,
+				75EA41DC225E6C570080A7CE /* UIViewController+TDExtended.swift in Sources */,
+				75EA41D5225E6C0F0080A7CE /* CurrencyPairsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		75EA41BA225E6A350080A7CE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75EA41BB225E6A350080A7CE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		75EA41BF225E6A370080A7CE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CurrenVerter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CurrenVerter/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CurrenVerter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CurrenVerter/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
