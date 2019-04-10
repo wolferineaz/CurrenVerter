@@ -19,6 +19,9 @@ class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
 
     func viewDidLoad() {
 
+        let pairs = [CurrencyPair]()
+        self.view?.show(pairs)
+
     }
 
     init(view: CurrencyPairsView, router: CurrencyPairsRouter) {

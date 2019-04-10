@@ -10,13 +10,21 @@
 import UIKit
 
 protocol CurrencyPairsView: class {
-
+    func show(_ pairs: [CurrencyPair])
 }
 
 class CurrencyPairsViewController: UIViewController {
 
+    //MARK: - VUPER
+
     var configurator: CurrencyPairsConfigurator!
     var presenter: CurrencyPairsPresenter!
+
+    //MARK: - Outlets
+
+    @IBOutlet weak var tableView: UITableView!
+
+    //MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,5 +36,16 @@ class CurrencyPairsViewController: UIViewController {
 }
 
 extension CurrencyPairsViewController: CurrencyPairsView {
+
+    func show(_ pairs: [CurrencyPair]) {
+        if pairs.isEmpty {
+            self.tableView.showEmptyView(with: self,
+                                         selector: #selector(onClickAddButton(sender:)))
+        }
+    }
+
+    @objc func onClickAddButton(sender: UIButton) {
+        
+    }
 
 }
