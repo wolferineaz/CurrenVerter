@@ -11,19 +11,38 @@ import UIKit
 
 protocol CurrencySelectPresenter {
     func viewDidLoad()
+    func onSelect(_ currencyData: CurrencyTableCellData)
 }
 
 class CurrencySelectPresenterImpl: CurrencySelectPresenter {
     fileprivate weak var view: CurrencySelectView?
     fileprivate let router: CurrencySelectRouter
 
+    var firstCurrency: Currency?
+    var currencies = Currency.all()
+
     func viewDidLoad() {
-        self.view?.show(Currency.all())
+        self.view?.show(self.currencies)
     }
 
-    init(view: CurrencySelectView, router: CurrencySelectRouter) {
+    init(view: CurrencySelectView,
+         router: CurrencySelectRouter,
+         firstCurrency: Currency?) {
         self.view = view
         self.router = router
+        self.firstCurrency = firstCurrency
+    }
+
+    func onSelect(_ currencyData: CurrencyTableCellData) {
+
+        guard let currency = self.currencies.first(where: { $0.identifier == currencyData.currencyIdentifier }) else { return }
+
+        if let firstCurrency = self.firstCurrency {
+            let pair = CurrencyPair(from: firstCurrency, to: currency)
+            self.router.onAddPair(pair)
+        } else {
+            self.router.showCurrenciesWith(currency)
+        }
     }
 
 }

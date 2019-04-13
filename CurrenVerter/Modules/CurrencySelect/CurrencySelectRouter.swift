@@ -10,7 +10,8 @@
 import UIKit
 
 protocol CurrencySelectRouter {
-
+    func showCurrenciesWith(_ currency: Currency)
+    func onAddPair(_ pair: CurrencyPair)
 }
 
 class CurrencySelectRouterImpl: CurrencySelectRouter {
@@ -18,6 +19,17 @@ class CurrencySelectRouterImpl: CurrencySelectRouter {
 
     init(view: CurrencySelectViewController) {
         self.view = view
+    }
+
+    func showCurrenciesWith(_ currency: Currency) {
+        let controller = CurrencySelectViewController()
+        controller.configurator = CurrencySelectConfiguratorImpl(currency)
+        self.view?.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    func onAddPair(_ pair: CurrencyPair) {
+        print("pair: \(pair)")
+        self.view?.navigationController?.popToRootViewController(animated: true)
     }
 
 }

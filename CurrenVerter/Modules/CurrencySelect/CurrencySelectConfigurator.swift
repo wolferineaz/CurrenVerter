@@ -15,9 +15,17 @@ protocol CurrencySelectConfigurator {
 
 class CurrencySelectConfiguratorImpl: CurrencySelectConfigurator {
 
+    var firstCurrency: Currency?
+
     func configure(_ controller: CurrencySelectViewController) {
         let router = CurrencySelectRouterImpl(view: controller)
-        controller.presenter = CurrencySelectPresenterImpl(view: controller, router: router)
+        controller.presenter = CurrencySelectPresenterImpl(view: controller,
+                                                           router: router,
+                                                           firstCurrency: self.firstCurrency)
+    }
+
+    init(_ currency: Currency?) {
+        self.firstCurrency = currency
     }
 
 }

@@ -88,6 +88,10 @@ extension CurrencySelectViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        if let data = self.data {
+            self.presenter.onSelect(data[indexPath.row])
+        }
     }
 
 }

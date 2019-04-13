@@ -22,7 +22,7 @@ class CurrencyPairsRouterImpl: CurrencyPairsRouter {
 
     func showCurrencies() {
         let controller = CurrencySelectViewController()
-        controller.configurator = CurrencySelectConfiguratorImpl()
+        controller.configurator = CurrencySelectConfiguratorImpl(nil)
         self.view?.navigationController?.pushViewController(controller, animated: true)
     }
 
