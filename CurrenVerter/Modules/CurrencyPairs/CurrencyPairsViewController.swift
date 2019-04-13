@@ -33,6 +33,12 @@ class CurrencyPairsViewController: UIViewController {
         self.presenter.viewDidLoad()
     }
 
+    //MARK: - Actions
+
+    @objc func onClickAddButton(sender: UIButton) {
+        self.presenter.onClickAddNewPair()
+    }
+
 }
 
 extension CurrencyPairsViewController: CurrencyPairsView {
@@ -42,10 +48,6 @@ extension CurrencyPairsViewController: CurrencyPairsView {
             self.tableView.showEmptyView(with: self,
                                          selector: #selector(onClickAddButton(sender:)))
         }
-    }
-
-    @objc func onClickAddButton(sender: UIButton) {
-        self.presenter.onClickAddNewPair()
     }
 
 }

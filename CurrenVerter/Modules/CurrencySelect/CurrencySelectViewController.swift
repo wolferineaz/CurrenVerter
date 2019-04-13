@@ -22,7 +22,7 @@ class CurrencySelectViewController: UIViewController {
 
     //MARK: - Data
 
-    var data: [Currency]?
+    var data: [CurrencyTableCellData]?
 
     //MARK: - Outlets
 
@@ -33,10 +33,19 @@ class CurrencySelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.dataSource = self
-
         self.configurator.configure(self)
         self.presenter.viewDidLoad()
+
+        self.configureTableView()
+    }
+
+    //MARK: - Configuring
+
+    func configureTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(CurrencyTableCell.nib,
+                                forCellReuseIdentifier: CurrencyTableCell.identifier)
     }
 
 }
@@ -44,7 +53,9 @@ class CurrencySelectViewController: UIViewController {
 extension CurrencySelectViewController: CurrencySelectView {
 
     func show(_ currencies: [Currency]) {
-        self.data = currencies
+        self.data = currencies.map { (currency) -> CurrencyTableCellData in
+            return CurrencyTableCellData(currency)
+        }
         self.tableView.reloadData()
     }
 
@@ -64,10 +75,19 @@ extension CurrencySelectViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = self.data else { return UITableViewCell() }
 
-        let currency = data[indexPath.row]
-        let cell = UITableViewCell()
-        cell.textLabel?.text = currency.identifier
+        let currencyData = data[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyTableCell",
+                                                 for: indexPath) as! CurrencyTableCell
+        cell.bind(currencyData)
         return cell
+    }
+
+}
+
+extension CurrencySelectViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

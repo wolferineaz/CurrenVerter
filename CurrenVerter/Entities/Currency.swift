@@ -11,9 +11,19 @@ import Foundation
 class Currency {
 
     var identifier: String?
+    var name: String?
 
-    init(identifier: String) {
+    init(identifier: String, name: String) {
         self.identifier = identifier
+        self.name = name
+    }
+
+}
+
+extension String {
+
+    func localized() -> String {
+        return NSLocalizedString(self, comment: "")
     }
 
 }
@@ -21,7 +31,7 @@ class Currency {
 extension Currency {
 
     static func all() -> [Currency] {
-        return self.identifiers().map { Currency(identifier: $0) }
+        return self.identifiers().map { Currency(identifier: $0, name: $0.localized()) }
     }
 
     static func identifiers() -> [String] {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75865B1A22620F7D00F476B5 /* UIView+TDExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75865B1922620F7D00F476B5 /* UIView+TDExtended.swift */; };
 		75EA41B7225E6A350080A7CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41B6225E6A350080A7CE /* AppDelegate.swift */; };
 		75EA41BE225E6A370080A7CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41BD225E6A370080A7CE /* Assets.xcassets */; };
 		75EA41C1225E6A370080A7CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41BF225E6A370080A7CE /* LaunchScreen.storyboard */; };
@@ -25,9 +26,17 @@
 		75EA41EC225E79C90080A7CE /* CurrencySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41E7225E79C90080A7CE /* CurrencySelectViewController.swift */; };
 		75EA41ED225E79C90080A7CE /* CurrencySelectConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41E8225E79C90080A7CE /* CurrencySelectConfigurator.swift */; };
 		75EA41EE225E79C90080A7CE /* CurrencySelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41E9225E79C90080A7CE /* CurrencySelectViewController.xib */; };
+		75EA41F2225E7CAA0080A7CE /* CurrencyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA41F0225E7CAA0080A7CE /* CurrencyTableCell.swift */; };
+		75EA41F3225E7CAA0080A7CE /* CurrencyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41F1225E7CAA0080A7CE /* CurrencyTableCell.xib */; };
+		75EA41F5225E84000080A7CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41F4225E84000080A7CE /* Localizable.strings */; };
+		75EA41FC225F0C700080A7CE /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41F8225F0C6F0080A7CE /* SF-Pro-Display-Bold.otf */; };
+		75EA41FD225F0C700080A7CE /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41F9225F0C6F0080A7CE /* SF-Pro-Display-Medium.otf */; };
+		75EA41FE225F0C700080A7CE /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41FA225F0C700080A7CE /* SF-Pro-Display-Regular.otf */; };
+		75EA41FF225F0C700080A7CE /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 75EA41FB225F0C700080A7CE /* SF-Pro-Display-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75865B1922620F7D00F476B5 /* UIView+TDExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TDExtended.swift"; sourceTree = "<group>"; };
 		75EA41B3225E6A350080A7CE /* CurrenVerter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrenVerter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA41B6225E6A350080A7CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75EA41BD225E6A370080A7CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +57,13 @@
 		75EA41E7225E79C90080A7CE /* CurrencySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySelectViewController.swift; sourceTree = "<group>"; };
 		75EA41E8225E79C90080A7CE /* CurrencySelectConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySelectConfigurator.swift; sourceTree = "<group>"; };
 		75EA41E9225E79C90080A7CE /* CurrencySelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencySelectViewController.xib; sourceTree = "<group>"; };
+		75EA41F0225E7CAA0080A7CE /* CurrencyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableCell.swift; sourceTree = "<group>"; };
+		75EA41F1225E7CAA0080A7CE /* CurrencyTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableCell.xib; sourceTree = "<group>"; };
+		75EA41F4225E84000080A7CE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		75EA41F8225F0C6F0080A7CE /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		75EA41F9225F0C6F0080A7CE /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		75EA41FA225F0C700080A7CE /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		75EA41FB225F0C700080A7CE /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +127,9 @@
 		75EA41CA225E6AAF0080A7CE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				75EA41F6225F0BF40080A7CE /* Fonts */,
 				75EA41BD225E6A370080A7CE /* Assets.xcassets */,
+				75EA41F4225E84000080A7CE /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -150,6 +168,7 @@
 			children = (
 				75EA41DB225E6C570080A7CE /* UIViewController+TDExtended.swift */,
 				75EA41E0225E6F410080A7CE /* UITableView+TDExtended.swift */,
+				75865B1922620F7D00F476B5 /* UIView+TDExtended.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -166,13 +185,42 @@
 		75EA41E4225E79AC0080A7CE /* CurrencySelect */ = {
 			isa = PBXGroup;
 			children = (
-				75EA41E8225E79C90080A7CE /* CurrencySelectConfigurator.swift */,
+				75EA41EF225E7C930080A7CE /* Cells */,
 				75EA41E7225E79C90080A7CE /* CurrencySelectViewController.swift */,
 				75EA41E9225E79C90080A7CE /* CurrencySelectViewController.xib */,
 				75EA41E5225E79C90080A7CE /* CurrencySelectPresenter.swift */,
 				75EA41E6225E79C90080A7CE /* CurrencySelectRouter.swift */,
+				75EA41E8225E79C90080A7CE /* CurrencySelectConfigurator.swift */,
 			);
 			path = CurrencySelect;
+			sourceTree = "<group>";
+		};
+		75EA41EF225E7C930080A7CE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41F0225E7CAA0080A7CE /* CurrencyTableCell.swift */,
+				75EA41F1225E7CAA0080A7CE /* CurrencyTableCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		75EA41F6225F0BF40080A7CE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41F7225F0BFF0080A7CE /* SFProDisplay */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		75EA41F7225F0BFF0080A7CE /* SFProDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				75EA41F8225F0C6F0080A7CE /* SF-Pro-Display-Bold.otf */,
+				75EA41FB225F0C700080A7CE /* SF-Pro-Display-Light.otf */,
+				75EA41F9225F0C6F0080A7CE /* SF-Pro-Display-Medium.otf */,
+				75EA41FA225F0C700080A7CE /* SF-Pro-Display-Regular.otf */,
+			);
+			path = SFProDisplay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,9 +281,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EA41FD225F0C700080A7CE /* SF-Pro-Display-Medium.otf in Resources */,
+				75EA41F3225E7CAA0080A7CE /* CurrencyTableCell.xib in Resources */,
+				75EA41F5225E84000080A7CE /* Localizable.strings in Resources */,
 				75EA41C1225E6A370080A7CE /* LaunchScreen.storyboard in Resources */,
 				75EA41BE225E6A370080A7CE /* Assets.xcassets in Resources */,
+				75EA41FC225F0C700080A7CE /* SF-Pro-Display-Bold.otf in Resources */,
+				75EA41FF225F0C700080A7CE /* SF-Pro-Display-Light.otf in Resources */,
 				75EA41EE225E79C90080A7CE /* CurrencySelectViewController.xib in Resources */,
+				75EA41FE225F0C700080A7CE /* SF-Pro-Display-Regular.otf in Resources */,
 				75EA41D8225E6C0F0080A7CE /* CurrencyPairsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,11 +310,13 @@
 				75EA41D4225E6C0F0080A7CE /* CurrencyPairsPresenter.swift in Sources */,
 				75EA41D7225E6C0F0080A7CE /* CurrencyPairsConfigurator.swift in Sources */,
 				75EA41DF225E6DF00080A7CE /* Currency.swift in Sources */,
+				75EA41F2225E7CAA0080A7CE /* CurrencyTableCell.swift in Sources */,
 				75EA41D6225E6C0F0080A7CE /* CurrencyPairsViewController.swift in Sources */,
 				75EA41E1225E6F410080A7CE /* UITableView+TDExtended.swift in Sources */,
 				75EA41EC225E79C90080A7CE /* CurrencySelectViewController.swift in Sources */,
 				75EA41DC225E6C570080A7CE /* UIViewController+TDExtended.swift in Sources */,
 				75EA41D5225E6C0F0080A7CE /* CurrencyPairsRouter.swift in Sources */,
+				75865B1A22620F7D00F476B5 /* UIView+TDExtended.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
