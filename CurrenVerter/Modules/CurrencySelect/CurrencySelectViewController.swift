@@ -76,7 +76,7 @@ extension CurrencySelectViewController: UITableViewDataSource {
         guard let data = self.data else { return UITableViewCell() }
 
         let currencyData = data[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyTableCell",
+        let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyTableCell.identifier,
                                                  for: indexPath) as! CurrencyTableCell
         cell.bind(currencyData)
         return cell
