@@ -16,7 +16,7 @@ class CurrencyTableCellData {
     init(_ currency: Currency) {
         self.currencyIdentifier = currency.identifier ?? ""
         self.currencyName = currency.name ?? ""
-        self.currencyUsed = currency.used ?? false
+        self.currencyUsed = currency.used
     }
 }
 

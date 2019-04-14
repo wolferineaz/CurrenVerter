@@ -19,6 +19,10 @@ class Currency {
         self.name = name
     }
 
+    class func name(by identifier: String) -> String {
+        return identifier.localized()
+    }
+
 }
 
 extension String {

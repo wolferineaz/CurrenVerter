@@ -58,6 +58,8 @@ class CurrencyPairsViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.estimatedSectionHeaderHeight = 44.0
+        self.tableView.register(CurrencyPairTableCell.nib,
+                                forCellReuseIdentifier: CurrencyPairTableCell.identifier)
     }
 
     //MARK: - Actions
@@ -95,12 +97,12 @@ extension CurrencyPairsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        if let data = self.data {
-            let pair = data[indexPath.row]
-            cell.textLabel?.text = "\(pair.from) -> \(pair.to)"
+        let identifier = CurrencyPairTableCell.identifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? CurrencyPairTableCell
+        if let pair = self.data?[indexPath.row] {
+            cell?.bind(CurrencyPairTableCellData(pair))
         }
-        return cell
+        return cell!
     }
 
 }
