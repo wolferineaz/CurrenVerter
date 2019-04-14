@@ -10,6 +10,10 @@ import UIKit
 
 extension UITableView {
 
+    func hideEmptyView() {
+        self.backgroundView = UIView()
+    }
+
     func showEmptyView(with target: Any, selector: Selector) {
         let contentView = self.contentView()
         let button = self.button(with: target, and: selector)

@@ -38,7 +38,7 @@ class CurrencySelectPresenterImpl: CurrencySelectPresenter {
         guard let currency = self.currencies.first(where: { $0.identifier == currencyData.currencyIdentifier }) else { return }
 
         if let firstCurrency = self.firstCurrency {
-            let pair = CurrencyPair(from: firstCurrency, to: currency)
+            let pair = CoreData.manager.save(pairWith: firstCurrency, to: currency)
             self.router.onAddPair(pair)
         } else {
             self.router.showCurrenciesWith(currency)

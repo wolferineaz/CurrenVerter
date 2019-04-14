@@ -11,6 +11,7 @@ import UIKit
 
 protocol CurrencyPairsPresenter {
     func viewDidLoad()
+    func reloadPairs()
     func onClickAddNewPair()
 }
 
@@ -20,9 +21,11 @@ class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
 
     func viewDidLoad() {
 
-        let pairs = [CurrencyPair]()
-        self.view?.show(pairs)
+    }
 
+    func reloadPairs() {
+        let pairs = CoreData.manager.pairs()
+        self.view?.show(pairs ?? [CurrencyPair]())
     }
 
     func onClickAddNewPair() {

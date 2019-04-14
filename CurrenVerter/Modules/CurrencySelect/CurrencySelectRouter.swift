@@ -28,7 +28,6 @@ class CurrencySelectRouterImpl: CurrencySelectRouter {
     }
 
     func onAddPair(_ pair: CurrencyPair) {
-        print("pair: \(pair)")
         self.view?.navigationController?.popToRootViewController(animated: true)
     }
 
