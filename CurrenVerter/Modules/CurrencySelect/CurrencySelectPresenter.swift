@@ -19,9 +19,16 @@ class CurrencySelectPresenterImpl: CurrencySelectPresenter {
     fileprivate let router: CurrencySelectRouter
 
     var firstCurrency: Currency?
-    var currencies = Currency.all()
+    var currencies: [Currency]!
 
     func viewDidLoad() {
+        self.currencies = Currency.filtered(by: self.firstCurrency)
+        if let firstCurrency = self.firstCurrency {
+            let first = self.currencies.first { $0.identifier == firstCurrency.identifier }
+            if first != nil {
+                first?.used = true
+            }
+        }
         self.view?.show(self.currencies)
     }
 

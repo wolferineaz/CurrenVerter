@@ -11,10 +11,12 @@ import UIKit
 class CurrencyTableCellData {
     var currencyIdentifier: String
     var currencyName: String
+    var currencyUsed: Bool
 
     init(_ currency: Currency) {
         self.currencyIdentifier = currency.identifier ?? ""
         self.currencyName = currency.name ?? ""
+        self.currencyUsed = currency.used ?? false
     }
 }
 
@@ -40,6 +42,8 @@ class CurrencyTableCell: UITableViewCell {
         self.shortNameLabel.text = self.data.currencyIdentifier
 
         self.fullNameLabel.text = self.data.currencyName
+
+        self.contentView.alpha = self.data.currencyUsed ? 0.4 : 1.0
     }
     
 }

@@ -12,6 +12,7 @@ class Currency {
 
     var identifier: String?
     var name: String?
+    var used = false
 
     init(identifier: String, name: String) {
         self.identifier = identifier
@@ -32,6 +33,18 @@ extension Currency {
 
     static func all() -> [Currency] {
         return self.identifiers().map { Currency(identifier: $0, name: $0.localized()) }
+    }
+
+    static func filtered(by currency: Currency?) -> [Currency] {
+        guard let currency = currency else { return self.all() }
+
+        let used = CoreData.manager.usedIdentifiers(by: currency)
+        return self.identifiers().map {
+            let currency = Currency(identifier: $0, name: $0.localized())
+            guard let used = used, let identifier = currency.identifier else { return currency }
+            currency.used = used.contains(identifier)
+            return currency
+        }
     }
 
     static func identifiers() -> [String] {

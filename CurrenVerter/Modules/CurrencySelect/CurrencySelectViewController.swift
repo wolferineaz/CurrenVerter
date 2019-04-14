@@ -90,7 +90,14 @@ extension CurrencySelectViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if let data = self.data {
-            self.presenter.onSelect(data[indexPath.row])
+            let currencyData = data[indexPath.row]
+
+            if currencyData.currencyUsed {
+                let cell = tableView.cellForRow(at: indexPath)
+                cell?.shake(duration: 0.5)
+            } else {
+                self.presenter.onSelect(currencyData)
+            }
         }
     }
 

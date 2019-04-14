@@ -17,9 +17,9 @@ class CoreData {
         return self.persistentContainer.viewContext
     }
 
-    func pair() -> CurrencyPair {
-        let entity = NSEntityDescription.entity(forEntityName: "CurrencyPair", in: self.context)
-        return CurrencyPair.init(entity: entity!, insertInto: nil)
+    func usedIdentifiers(by currency: Currency) -> [String]? {
+        let pairs = self.pairs()?.filter{ $0.from == currency.identifier }
+        return pairs?.map { $0.to! }
     }
 
     func save(pairWith from: Currency, to: Currency) -> CurrencyPair {
