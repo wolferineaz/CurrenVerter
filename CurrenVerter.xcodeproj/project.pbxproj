@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		756BBE602264D984002FFACE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756BBE5F2264D984002FFACE /* Constants.swift */; };
+		756BBE622264DE5F002FFACE /* UIFont+TDExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756BBE612264DE5F002FFACE /* UIFont+TDExtended.swift */; };
 		75865B1A22620F7D00F476B5 /* UIView+TDExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75865B1922620F7D00F476B5 /* UIView+TDExtended.swift */; };
 		75865B1F22621B6800F476B5 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75865B1D22621B6800F476B5 /* CoreData.xcdatamodeld */; };
 		75865B212262201500F476B5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75865B202262201500F476B5 /* CoreData.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		756BBE5F2264D984002FFACE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		756BBE612264DE5F002FFACE /* UIFont+TDExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+TDExtended.swift"; sourceTree = "<group>"; };
 		75865B1922620F7D00F476B5 /* UIView+TDExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TDExtended.swift"; sourceTree = "<group>"; };
 		75865B1E22621B6800F476B5 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		75865B202262201500F476B5 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				75EA41DB225E6C570080A7CE /* UIViewController+TDExtended.swift */,
 				75EA41E0225E6F410080A7CE /* UITableView+TDExtended.swift */,
 				75865B1922620F7D00F476B5 /* UIView+TDExtended.swift */,
+				756BBE612264DE5F002FFACE /* UIFont+TDExtended.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				756BBE602264D984002FFACE /* Constants.swift in Sources */,
 				75EA41CD225E6B300080A7CE /* RootRouter.swift in Sources */,
 				75EA41EB225E79C90080A7CE /* CurrencySelectRouter.swift in Sources */,
+				756BBE622264DE5F002FFACE /* UIFont+TDExtended.swift in Sources */,
 				75EA41EA225E79C90080A7CE /* CurrencySelectPresenter.swift in Sources */,
 				75865B212262201500F476B5 /* CoreData.swift in Sources */,
 				75EA41B7225E6A350080A7CE /* AppDelegate.swift in Sources */,
