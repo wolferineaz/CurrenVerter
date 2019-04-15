@@ -13,6 +13,8 @@
 "add_pair_title" = "Add currency pair";
 "add_pair_desc" = "Choose a currency pair to compare their live rates";
 
+"delete" = "Delete";
+
 "AUD" = "Australian dollar";
 "BGN" = "Bulgarian lev";
 "BRL" = "Brazilian real";

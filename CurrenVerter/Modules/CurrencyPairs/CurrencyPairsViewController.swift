@@ -40,23 +40,13 @@ class CurrencyPairsViewController: UIViewController {
         self.presenter.onViewDidLoad()
         self.configureTableView()
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "clear", style: .plain, target: self, action: #selector(clear))
-    }
-
-    @objc func clear() {
-        CoreData.manager.clear()
-        self.presenter.onViewWillAppear()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.presenter.reloadPairs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.presenter.onViewWillAppear()
+        self.presenter.onNeedReload()
+        self.presenter.scheduleReloading()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -157,6 +147,23 @@ extension CurrencyPairsViewController: UITableViewDelegate {
         return hasData ? CurrencyPairsAddPairHeaderView.fromNib(onClick: {
             self.presenter.onClickAddNewPair()
         }) : nil
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let delete = UITableViewRowAction(style: .destructive, title: "delete".localized()) { (action, indexPath) in
+
+            let data = self.data[indexPath.row]
+            CoreData.manager.clearPair(by: data.from, to: data.to)
+            self.data.remove(at: indexPath.row)
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.endUpdates()
+            self.presenter.onNeedReload()
+            
+        }
+
+        return [delete]
     }
 
 }

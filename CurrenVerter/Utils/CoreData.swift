@@ -43,6 +43,22 @@ class CoreData {
         return nil
     }
 
+    func clearPair(by from: String, to: String) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrencyPair")
+        request.predicate = NSPredicate.init(format: "from = %@ AND to = %@", from, to)
+        do {
+            let result = try self.context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                self.context.delete(data)
+            }
+            try self.context.save()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+
+    }
+
     func clear() {
         self.clear("CurrencyPair")
     }

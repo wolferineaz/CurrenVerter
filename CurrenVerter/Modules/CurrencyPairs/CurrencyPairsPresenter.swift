@@ -12,8 +12,8 @@ import UIKit
 protocol CurrencyPairsPresenter {
     func onViewDidLoad()
     func onViewWillDisappear()
-    func onViewWillAppear()
-    func reloadPairs()
+    func onNeedReload()
+    func scheduleReloading()
     func onClickAddNewPair()
 }
 
@@ -29,7 +29,7 @@ class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
 
     }
 
-    func onViewWillAppear() {
+    func onNeedReload() {
         guard let pairs = CoreData.manager.pairs() else { return }
         Network.manager.load(pairs, block: { (results) in
             guard let data = results else { return }
@@ -42,7 +42,7 @@ class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
         self.timer.invalidate()
     }
 
-    func reloadPairs() {
+    func scheduleReloading() {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             guard let pairs = CoreData.manager.pairs() else { return }
 
@@ -57,7 +57,6 @@ class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
 
                 self.lastTask = nil
             })
-
 
         })
     }
