@@ -75,9 +75,10 @@ extension UITableView {
     }
 
     func configure(_ imageView: UIImageView, in superView: UIView, upper button: UIButton) {
-        imageView.leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: 20).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: -20).isActive = true
+        imageView.leadingAnchor.constraint(greaterThanOrEqualTo: superView.leadingAnchor, constant: 20).isActive = true
+        superView.trailingAnchor.constraint(greaterThanOrEqualTo: imageView.trailingAnchor, constant: 20).isActive = true
         imageView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -10).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 64.0).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 64.0).isActive = true
     }
