@@ -10,7 +10,9 @@
 import UIKit
 
 protocol CurrencyPairsPresenter {
-    func viewDidLoad()
+    func onViewDidLoad()
+    func onViewWillDisappear()
+    func onViewWillAppear()
     func reloadPairs()
     func onClickAddNewPair()
 }
@@ -19,13 +21,45 @@ class CurrencyPairsPresenterImpl: CurrencyPairsPresenter {
     fileprivate weak var view: CurrencyPairsView?
     fileprivate let router: CurrencyPairsRouter
 
-    func viewDidLoad() {
+    var lastTask: URLSessionTask?
+
+    var timer: Timer!
+
+    func onViewDidLoad() {
 
     }
 
+    func onViewWillAppear() {
+        guard let pairs = CoreData.manager.pairs() else { return }
+        Network.manager.load(pairs, block: { (results) in
+            guard let data = results else { return }
+
+            self.view?.show(data)
+        })
+    }
+
+    func onViewWillDisappear() {
+        self.timer.invalidate()
+    }
+
     func reloadPairs() {
-        let pairs = CoreData.manager.pairs()
-        self.view?.show(pairs ?? [CurrencyPair]())
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            guard let pairs = CoreData.manager.pairs() else { return }
+
+            if self.lastTask != nil {
+                return
+            }
+
+            self.lastTask = Network.manager.load(pairs, block: { (results) in
+                guard let data = results else { return }
+
+                self.view?.update(data)
+
+                self.lastTask = nil
+            })
+
+
+        })
     }
 
     func onClickAddNewPair() {

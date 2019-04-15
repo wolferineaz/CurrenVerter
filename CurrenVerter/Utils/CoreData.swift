@@ -37,7 +37,8 @@ class CoreData {
             let result = try context.fetch(request)
             return result as? [CurrencyPair]
         } catch {
-            print("Failed")
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
         return nil
     }
@@ -56,7 +57,8 @@ class CoreData {
             }
             try self.context.save()
         } catch {
-
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
 

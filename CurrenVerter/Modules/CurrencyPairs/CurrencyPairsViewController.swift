@@ -11,7 +11,8 @@ import UIKit
 import CoreData
 
 protocol CurrencyPairsView: class {
-    func show(_ pairs: [CurrencyPair])
+    func show(_ pairs: [PairResponse])
+    func update(_ pairs: [PairResponse])
 }
 
 class CurrencyPairsViewController: UIViewController {
@@ -23,7 +24,7 @@ class CurrencyPairsViewController: UIViewController {
 
     //MARK: - Data
 
-    var data: [CurrencyPair]?
+    var data = [CurrencyPairTableCellData]()
 
     //MARK: - Outlets
 
@@ -35,7 +36,7 @@ class CurrencyPairsViewController: UIViewController {
         super.viewDidLoad()
 
         self.configurator.configure(self)
-        self.presenter.viewDidLoad()
+        self.presenter.onViewDidLoad()
         self.configureTableView()
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "clear", style: .plain, target: self, action: #selector(clear))
@@ -43,12 +44,24 @@ class CurrencyPairsViewController: UIViewController {
 
     @objc func clear() {
         CoreData.manager.clear()
-        self.presenter.reloadPairs()
+        self.presenter.onViewWillAppear()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.presenter.reloadPairs()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.presenter.onViewWillAppear()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.presenter.onViewWillDisappear()
     }
 
     //MARK: - Configuring
@@ -72,16 +85,41 @@ class CurrencyPairsViewController: UIViewController {
 
 extension CurrencyPairsViewController: CurrencyPairsView {
 
-    func show(_ pairs: [CurrencyPair]) {
-        self.data = pairs
+    func show(_ pairs: [PairResponse]) {
 
-        if pairs.isEmpty {
-            self.tableView.showEmptyView(with: self,
-                                         selector: #selector(onClickAddButton(sender:)))
-        } else {
-            self.tableView.hideEmptyView()
+        DispatchQueue.main.async {
+
+            if pairs.isEmpty {
+                self.data.removeAll()
+                self.tableView.reloadData()
+                self.tableView.showEmptyView(with: self,
+                                             selector: #selector(self.onClickAddButton(sender:)))
+            } else {
+                self.tableView.hideEmptyView()
+                self.data = pairs.map({ (data) -> CurrencyPairTableCellData in
+                    return CurrencyPairTableCellData(data)
+                })
+                self.tableView.reloadData()
+            }
+            
         }
-        self.tableView.reloadData()
+
+    }
+
+    func update(_ pairs: [PairResponse]) {
+        DispatchQueue.main.async {
+            self.data = pairs.map({ (data) -> CurrencyPairTableCellData in
+                return CurrencyPairTableCellData(data)
+            })
+
+            guard let indexPaths = self.tableView.indexPathsForVisibleRows else { return }
+
+            indexPaths.forEach({ (indexPath) in
+                if let cell = self.tableView.cellForRow(at: indexPath) as? CurrencyPairTableCell {
+                    cell.bind(self.data[indexPath.row])
+                }
+            })
+        }
     }
 
 }
@@ -93,15 +131,14 @@ extension CurrencyPairsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data?.count ?? 0
+        return self.data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = CurrencyPairTableCell.identifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? CurrencyPairTableCell
-        if let pair = self.data?[indexPath.row] {
-            cell?.bind(CurrencyPairTableCellData(pair))
-        }
+        let data = self.data[indexPath.row]
+        cell?.bind(data)
         return cell!
     }
 
@@ -110,12 +147,12 @@ extension CurrencyPairsViewController: UITableViewDataSource {
 extension CurrencyPairsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let hasData = (self.data?.count ?? 0) > 0
+        let hasData = self.data.count > 0
         return hasData ? UITableView.automaticDimension : 0
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let hasData = (self.data?.count ?? 0) > 0
+        let hasData = self.data.count > 0
         return hasData ? CurrencyPairsAddPairHeaderView.fromNib(onClick: {
             self.presenter.onClickAddNewPair()
         }) : nil

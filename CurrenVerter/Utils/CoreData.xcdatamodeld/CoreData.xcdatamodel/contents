@@ -3,8 +3,9 @@
     <entity name="CurrencyPair" representedClassName="CurrencyPair" syncable="YES" codeGenerationType="class">
         <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CurrencyPair" positionX="-18" positionY="45" width="128" height="73"/>
+        <element name="CurrencyPair" positionX="-18" positionY="45" width="128" height="88"/>
     </elements>
 </model>

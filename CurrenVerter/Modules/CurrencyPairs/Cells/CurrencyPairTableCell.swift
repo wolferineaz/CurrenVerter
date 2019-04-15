@@ -12,10 +12,12 @@ class CurrencyPairTableCellData {
 
     var from: String
     var to: String
+    var value: Double
 
-    init(_ pair: CurrencyPair) {
+    init(_ pair: PairResponse) {
         self.from = pair.from ?? ""
         self.to = pair.to ?? ""
+        self.value = pair.value ?? 0
     }
 }
 
@@ -37,7 +39,7 @@ class CurrencyPairTableCell: UITableViewCell {
 
         self.fromTopLabel.text = "1 \(self.data.from)"
         self.fromBottomLabel.text = Currency.name(by: self.data.from)
-
+        self.resultLabel.text = "\(self.data.value)"
         self.toBottomLabel.text = Currency.name(by: self.data.to) + " • " + self.data.to
     }
 }
