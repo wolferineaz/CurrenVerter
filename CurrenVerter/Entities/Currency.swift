@@ -39,7 +39,7 @@ extension Currency {
         return self.identifiers().map { Currency(identifier: $0, name: $0.localized()) }
     }
 
-    static func filtered(by currency: Currency?) -> [Currency] {
+    class func filtered(by currency: Currency?) -> [Currency] {
         guard let currency = currency else { return self.all() }
 
         let used = CoreData.manager.usedIdentifiers(by: currency)
