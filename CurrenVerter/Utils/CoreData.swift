@@ -59,25 +59,6 @@ class CoreData {
 
     }
 
-    func clear() {
-        self.clear("CurrencyPair")
-    }
-
-    func clear(_ entityName: String) {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        request.includesPropertyValues = false
-        do {
-            let result = try self.context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                self.context.delete(data)
-            }
-            try self.context.save()
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-    }
-
     // MARK: - Core Data stack
 
     private lazy var persistentContainer: NSPersistentContainer = {
