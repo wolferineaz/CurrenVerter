@@ -24,6 +24,7 @@ class CurrencySelectRouterImpl: CurrencySelectRouter {
     func showCurrenciesWith(_ currency: Currency) {
         let controller = CurrencySelectViewController()
         controller.configurator = CurrencySelectConfiguratorImpl(currency)
+        controller.title = "second_currency".localized()
         self.view?.navigationController?.pushViewController(controller, animated: true)
     }
 

@@ -35,6 +35,7 @@ class CurrencyPairsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "dashboard".localized()
         self.configurator.configure(self)
         self.presenter.onViewDidLoad()
         self.configureTableView()

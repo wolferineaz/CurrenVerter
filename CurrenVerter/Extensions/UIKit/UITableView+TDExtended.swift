@@ -39,7 +39,7 @@ extension UITableView {
     func button(with target: Any, and selector: Selector) -> UIButton {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Add currency pair", for: .normal)
+        button.setTitle("add_pair_title".localized(), for: .normal)
         button.addTarget(target, action: selector, for: .touchUpInside)
         return button
     }
@@ -53,7 +53,7 @@ extension UITableView {
     func label() -> UILabel {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Choose a currency pair to compare their live rates"
+        label.text = "add_pair_desc".localized()
         label.textColor = .black
         label.numberOfLines = 0
         label.textAlignment = .center
